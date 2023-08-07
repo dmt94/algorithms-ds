@@ -52,7 +52,7 @@ def rec_just_even(arr):
       else:
          return []
       
-  #recursive case
+  #recursive case, we are working with a smaller array at this point
    if arr[0] % 2 == 0:
         # If even, include it in the result and continue with the rest of the array
       return [arr[0]] + rec_just_even(arr[1:])
@@ -71,3 +71,25 @@ def even_only(arr):
 
    return new_arr
 
+
+#3 triangular number is a numerical sequence. (1,3,6,10,15,21) 
+# Tn = n * (n + 1) / 2
+# this pattern is kind of similar to the factorial 
+
+def factorial(num): 
+   if num == 1:
+      return 1
+   
+   return num * factorial(num - 1)
+
+print(factorial(4)) # 24
+
+def triangular_nums(num):
+   #base case is 1, since we are starting from the maximum (num) and utilizing the fact that we are adding the current number with all the numbers before it
+   if num == 1:
+      return 1
+   
+   # a triangular number is N plus the previous number
+   return num + triangular_nums(num - 1)
+
+print(triangular_nums(7))
