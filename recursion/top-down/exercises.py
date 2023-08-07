@@ -93,3 +93,22 @@ def triangular_nums(num):
    return num + triangular_nums(num - 1)
 
 print(triangular_nums(7))
+
+
+#4 write a function that accepts a string and returns the first index that contains the char "x" (recursion and other method)
+
+#using python method
+def find_idx_of_str(str, char):
+   return str.index(char)
+
+print(find_idx_of_str('abcdef', 'b'))
+
+def rec_find_idx(str, idx=0):
+
+   if str[idx] == 'x':
+      return idx
+   
+   else:
+      return rec_find_idx(str, idx + 1)
+
+print(rec_find_idx('abx'))
