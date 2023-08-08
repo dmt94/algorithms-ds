@@ -103,6 +103,7 @@ def find_idx_of_str(str, char):
 
 print(find_idx_of_str('abcdef', 'b'))
 
+
 def rec_find_idx(str, idx=0):
 
    if str[idx] == 'x':
@@ -112,3 +113,27 @@ def rec_find_idx(str, idx=0):
       return rec_find_idx(str, idx + 1)
 
 print(rec_find_idx('abx'))
+
+### 5 Unique Paths problem, write a function that accepts a number of rows and a number of cols, and calculates the # of possible "shortest" paths from the upper leftmost square to the lower rightmost square
+
+# To summarize, when we talk about "shortest paths" in the "Unique Paths" problem, we are referring to the different sequences of movements (either moving down or moving right) that allow us to traverse the grid from the start to the end while covering the minimum number of steps.
+
+# every step means moving horizontally or vertically, not diagonally 
+#    [a][ ][ ][ ]
+#    [ ][ ][ ][ ]
+#    [ ][ ][ ][z]
+
+def unique_paths(rows, cols):
+   
+   #base case bc there is only one path available movement 
+   if rows == 1 or cols == 1:
+      return 1
+   # Base Case: The base case of the recursion is when either rows or cols becomes 1. In this case, there is only one unique path available because you can only move either horizontally or vertically. For example, if rows is 1 and cols is 4, there's only one path: "→→→→". Similarly, if rows is 3 and cols is 1, there's only one path: "↓↓↓". 
+   # unique_paths(1, 4) = 1
+   # unique_paths(3, 1) = 1
+
+   return unique_paths(rows - 1, cols) + unique_paths(rows, cols - 1)
+  # calculates the total number of unique paths by summing two recursive calls: unique_paths(rows - 1, cols) (moving from above) and unique_paths(rows, cols - 1) (moving from the left).
+
+
+print('there are: ', unique_paths(7,3), ' unique paths')
