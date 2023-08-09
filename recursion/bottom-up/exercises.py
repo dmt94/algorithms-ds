@@ -45,8 +45,12 @@ def golomb(n, memo={}):
     
 #     return unique_path(rows - 1, cols) + unique_path(rows, cols - 1) 
 
-def unique_path(rows, cols):
+def unique_path(rows, cols, memo={}):
     if rows == 1 or cols == 1:
         return 1
     
-    return unique_path(rows - 1, cols) + unique_path(rows, cols - 1)  
+    if [rows,cols] not in memo:
+        memo[rows, cols] = unique_path(rows - 1, cols, memo) + unique_path(rows, cols - 1, memo)
+    
+    return memo[rows,cols]
+
