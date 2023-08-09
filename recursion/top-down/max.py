@@ -1,8 +1,7 @@
-
 def max(arr, count=0):
     # print("RECURSION")
     count += 1
-
+    
     if len(arr) == 1:
         print("Base Case reached =>", arr[0])
         return arr[0]

@@ -6,7 +6,7 @@ pokemons = ['pikachu', 'bulbasaur', ['eevee', ['sylveon', 'glaceon', 'flareon', 
 
 def print_values(arr):
     for val in arr:
-        #array is an instance of an object
+        #array is an instance of                                an object
         #a built-in function in Python that is used to check whether an object is an instance of a particular class or a subclass of that class.
         if isinstance(val, list):
             print_values(val)
