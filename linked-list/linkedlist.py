@@ -45,9 +45,13 @@ class LinkedList:
     def display(self):
         #method is used to print the elements of the linekd list in order. it starts from the 'head' and iterates through the linked list by following the 'next' references. 
         current = self.head
+        # the variable 'current' is initialized with the value of 'self.head'. This sets 'current' to point to the first node of the linked list
         while current:
+            # starts a while loop that continues as long as the current node exists (current node is not None). The loop iterates through the linked list nodes.
             print(current.data, end=" -> ")
             current = current.next
+            # This updates the current variable to point to the next node in the linked list. It moves current from the current node to the next node by following the next reference. This is the key step that allows the loop to move through the linked list.
+            # NOTE eventually, there will be a node that will have its current.next set to None which means it is the last node
         print("None")
 
 # Create a linked list and add elements
