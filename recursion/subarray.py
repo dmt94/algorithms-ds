@@ -2,7 +2,7 @@
 # we recursively call the function, passing that value (the subarray, a list) as an argument
 # if a value is not a subarray, then it simply prints that value
 
-pokemons = ['pikachu', 'bulbasaur', ['eevee', ['sylveon', 'glaceon', 'flareon', ['umbreon', 'espeon']]] ,['mew', 'mewtwo']]
+pokemons = ['pikachu', 'bulbasaur', ['eevee', ['sylveon', 'glaceon', 'flareon', ['umbreon', 'espeon']]] ,['mew', 'mewtwo', 'charizard']]
 
 def print_values(arr):
     for val in arr:

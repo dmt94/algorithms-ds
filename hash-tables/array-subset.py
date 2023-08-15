@@ -1,6 +1,6 @@
 # determine whether an array is a subset of another array
 
-# O(N * M) time efficiency:
+# O(N * M) time efficiency: since it runs for the number of items in the first array multiplied by the # of times in second array
 
 def isSubset(arr1, arr2):
     #determine which array is smaller
@@ -15,6 +15,7 @@ def isSubset(arr1, arr2):
     for i in smallerArr:
        foundMatch = False
        #for each smaller array iterate through larger array
+       #for each iteration, unless i has a j equivalent, then it is False
        for j in largerArr:
           if i == j:
              foundMatch = True
@@ -22,10 +23,10 @@ def isSubset(arr1, arr2):
     if foundMatch == False:
       return False
     
-
+    #if we get through the end of the loops, it means that all values from smaller arr are present in larger array
     return True
 
-print(isSubset([5,5,55,5], [1,2,2,3]))
+print(isSubset([5,5,55,5,20,2], [1,2,2,3]))
 
 #using sets
 def isSubset(arr1, arr2):

@@ -28,11 +28,11 @@ class LinkedList:
         # append method is used to add a new node with the given 'data' to the end of the linked list
         
         new_node = Node(data)
-        # an instance of the Node class ( a new node ) is created, passing in data used in the argument when calling the append method, to create the new node
-        # NOTE this node as a 'next' property initialized to 'None' by default
+        # an instance of the Node class ( a new node ) is created--passing in data used in the argument when calling the linked list' append method to initialize the new node
+        # NOTE this node has a 'next' property initialized to 'None' by default
 
         if self.head is None:
-            # if the self.head is None, it means that the linked list is empty. If this is the case, then the 'head' is set to the newly created node (new_node) and exits
+            # if the self.head for the linked list is None, it means that the linked list is empty. If this is the case, then the 'head' is set to the newly created node (new_node) and exits
             self.head = new_node
             return        
         current = self.head
@@ -64,6 +64,24 @@ class LinkedList:
         print("None")
         # After the loop completes (when current becomes None after traversing through the entire linked list), this line prints "None" to indicate the end of the linked list. This is added for visual clarity to signify that the linked list has been fully displayed.
 
+    def read(self, index):
+        current_node = self.head
+        #  initializes the current_node variable to the head of the linked list. This will be the starting point for traversing the list.
+        current_idx = 0
+        # This initializes the current_idx variable to 0. It's used to keep track of the index of the current node while traversing the list.
+        while current_idx < index: 
+            # The loop continues as long as the current index is less than the target index you're trying to reach.
+            current_node = current_node.next
+            # This updates current_node to the next node in the list. This effectively moves the traversal one step forward.
+            current_idx += 1
+            # This increments the current index, indicating that you've moved to the next node.
+            if current_node == None:
+                # The code returns None only if the loop reaches the end of the linked list (when current_node becomes None) before reaching the desired index. If the desired index is within the bounds of the linked list, the loop will terminate with current_node pointing to the node at the target index, and current_node.data will return the data stored in that node.
+                return None
+        return current_node.data
+                    
+            
+
 # Create a linked list and add elements
 my_list = LinkedList()
 my_list.append(10)
@@ -72,3 +90,6 @@ my_list.append(30)
 
 # Display the linked list
 my_list.display()
+
+#read the data for a specific node index
+print(my_list.read(1))
