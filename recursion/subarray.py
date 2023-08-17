@@ -14,3 +14,6 @@ def print_values(arr):
             print(val)
 
 print_values(pokemons)
+
+letters = [letter for letter in 'flowers']
+print(letters)
